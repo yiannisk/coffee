@@ -1,1 +1,51 @@
 /* CSS declarations go here */
+* {
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
+}
+
+
+body,html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    padding-top: 50px;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.current-order {
+    padding-left: 30px;
+    border-left: 1px solid #ccc;
+}
+
+#login-buttons {
+    padding-top: 10px;
+    padding-right: 10px;
+    height: 25px;
+}
+
+.left-half {
+    float: left;
+    width: 50%;
+}
+
+.right-half {
+    float: right;
+    width: 50%;
+    text-align: right;
+}
+
+.cnt {
+    line-height: 25px;
+}
+
+.countdown_amount {
+    font-size: 0.9em;
+}
