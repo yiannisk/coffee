@@ -17,6 +17,7 @@
         </div>
         <ul class="nav navbar-nav">
             <li class="active"><a href="#">Orders</a></li>
+            <li><a href="#">Place a new order</a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
@@ -29,7 +30,7 @@
     <div class="row full-height">
         <div class="full-height col-md-6">
             <div class="full-height orders-list">
-                <div class="page-header"><h1>current orders</h1></div>
+                <div class="page-header"><h1>current orders <small> about to be placed</small></h1></div>
                 {{#each items}}
                 <div class="list-group">
                     {{> order_listing}}
@@ -46,6 +47,17 @@
 </template>
 
 <template name="order_listing">
+    <a href="#" class="list-group-item orders-list-entry">
+        <div class="left-half">
+            <h4 class="list-group-item-heading">{{owner}}</h4>
+            <p class="list-group-item-text">{{vendor}}</p>
+        </div>
+        <div class="right-half">
+            <p class="list-group-item-text"><i class="icon-bell"></i> <span class="cnt">{{elapses}}</span></p>
+            <p class="list-group-item-text"><i class="icon-user"></i> {{entries.length}}</p>
+        </div>
+        <div style="clear: both"></div>
+    </a>
     <a href="#" class="list-group-item orders-list-entry">
         <div class="left-half">
             <h4 class="list-group-item-heading">{{owner}}</h4>

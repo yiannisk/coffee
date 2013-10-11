@@ -1,5 +1,4 @@
 Orders = new Meteor.Collection('orders');
-Users = new Meteor.Collection('users');
 
 if (Meteor.isClient) {
     Template.orders.items = function () {
@@ -10,7 +9,11 @@ if (Meteor.isClient) {
         'click .orders-list-entry': function (evt) {
             var $this = $(evt.currentTarget);
             if ($this.hasClass('active')) return;
+
+            $('.orders-list-entry').removeClass('active');
             $this.addClass('active');
+
+            console.log(this.entries);
             evt.preventDefault();
         }
     };
@@ -22,9 +25,6 @@ if (Meteor.isClient) {
             $this.countdown({until: d, compact: true});
         });
     };
-
-    Meteor.startup(function () {
-    });
 }
 
 if (Meteor.isServer) {
