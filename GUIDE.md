@@ -41,4 +41,5 @@ Installed using `mrt add <package name>`.
 
 ## Useful links
 
-* [https://atmosphere.meteor.com/]
+* https://atmosphere.meteor.com
+  A list of various packages installable using meteorite.
