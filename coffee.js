@@ -5,6 +5,12 @@ if (Meteor.isClient) {
         return Orders.find({ status: 'pending' });
     };
 
+    Template.orders.selectedOrder = function () {
+        // The session is a monitored source of reactions; whenever it changes, reactors like this template
+        // will update accordingly.
+        return Session.get("selectedOrder");
+    };
+
     Template.orders.events = {
         'click .orders-list-entry': function (evt) {
             var $this = $(evt.currentTarget);
@@ -13,7 +19,7 @@ if (Meteor.isClient) {
             $('.orders-list-entry').removeClass('active');
             $this.addClass('active');
 
-            console.log(this.entries);
+            Session.set("selectedOrder", this);
             evt.preventDefault();
         }
     };
@@ -43,7 +49,7 @@ if (Meteor.isServer) {
                 entries: [{
                     quantity: 1,
                     name: 'freddo espresso μέτριο με λίγο εβαπορέ',
-                    user: 'John'
+                    user: 'Yiannis Karadimas'
                 }]
             });
         }
