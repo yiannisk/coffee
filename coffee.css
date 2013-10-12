@@ -10,10 +10,12 @@ body,html {
     margin: 0;
     padding: 0;
     height: 95%;
+    background: #F4F1DD;
 }
 
 body {
     padding-top: 50px;
+    color: #5C3B0F;
 }
 
 .full-height {
@@ -22,7 +24,7 @@ body {
 
 .current-order {
     padding-left: 30px;
-    border-left: 1px solid #ccc;
+    border-left: 1px solid #ECE0BA;
 }
 
 #login-buttons {
@@ -48,13 +50,4 @@ body {
 
 .countdown_amount {
     font-size: 0.9em;
-}
-
-.orders-list-entry {
-    border: none;
-    border-top: 1px solid #ccc;
-}
-
-.orders-list-entry:first-child {
-    border: none;
 }
