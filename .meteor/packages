@@ -8,9 +8,9 @@ autopublish
 insecure
 preserve-inputs
 
-accounts-ui
 accounts-google
 
 font-awesome
 bootstrap-3
 jquery
+accounts-ui-unstyled

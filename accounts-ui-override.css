@@ -1,0 +1,27 @@
+.login-text-and-button .login-display-name {
+    color: #F4F1DD;
+    float: left;
+    line-height: 20px;
+    vertical-align: middle;
+    padding-top: 4px;
+    padding-right: 15px;
+}
+
+.login-button.single-login-button {
+    cursor: pointer;
+    background: #CC9966;
+    color: #330000;
+    text-align: center;
+    font-size: 0.9em;
+    font-weight: bold;
+    float: right;
+    padding: 5px 10px 5px 10px;
+    vertical-align: middle;
+    border: 1px solid #5C3B0F;
+}
+
+.login-button.single-login-button:hover {
+    background-color: #89570F;
+    border: 1px solid #CC9966;
+    color: #CC9966;
+}
