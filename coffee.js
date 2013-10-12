@@ -8,18 +8,20 @@ if (Meteor.isClient) {
     Template.orders.selectedOrder = function () {
         // The session is a monitored source of reactions; whenever it changes, reactors like this template
         // will update accordingly.
-        return Session.get("selectedOrder");
+        return Session.get('selectedOrder');
+    };
+
+    Template.order_listing.active = function () {
+        console.log(Session.get('selectedOrder'), this);
+        return Session.get('selectedOrder') != null
+            && Session.get('selectedOrder')._id === this._id ? 'active' : '';
     };
 
     Template.orders.events = {
         'click .orders-list-entry': function (evt) {
-            var $this = $(evt.currentTarget);
+            var self = this, $this = $(evt.currentTarget);
             if ($this.hasClass('active')) return;
-
-            $('.orders-list-entry').removeClass('active');
-            $this.addClass('active');
-
-            Session.set("selectedOrder", this);
+            Session.set("selectedOrder", self);
             evt.preventDefault();
         }
     };
@@ -39,7 +41,9 @@ if (Meteor.isServer) {
 
         function testOrders() {
             if (Orders.findOne({vendor: 'Επίλεκτον'}) != null)
-                Orders.remove({vendor: 'Επίλεκτον'});
+                Orders.find().forEach(function (x) {
+                    Orders.remove(x);
+                });
 
             Orders.insert({
                 owner: 'Γιαννης Καραδήμας',
@@ -50,6 +54,18 @@ if (Meteor.isServer) {
                     quantity: 1,
                     name: 'freddo espresso μέτριο με λίγο εβαπορέ',
                     user: 'Yiannis Karadimas'
+                }]
+            });
+
+            Orders.insert({
+                owner: 'Ερρίκος Κοέν',
+                vendor: 'Γρηγόρης',
+                status: 'pending',
+                elapses: new Date(2013, 9, 14, 11, 45),
+                entries: [{
+                    quantity: 1,
+                    name: 'freddo cappuccino γλυκό',
+                    user: 'Panayiotis Matsinopoulos'
                 }]
             });
         }

@@ -52,25 +52,14 @@
 </template>
 
 <template name="order_entries_listing">
-    <a href="#" class="list-group-item orders-list-entry">
+    <a href="#" class="list-group-item order-entries-item">
         <h4 class="list-group-item-heading">{{quantity}}x {{name}}</h4>
         <p class="list-group-item-text">{{user}}</p>
     </a>
 </template>
 
 <template name="order_listing">
-    <a href="#" class="list-group-item orders-list-entry">
-        <div class="left-half">
-            <h4 class="list-group-item-heading">{{owner}}</h4>
-            <p class="list-group-item-text">{{vendor}}</p>
-        </div>
-        <div class="right-half">
-            <p class="list-group-item-text"><i class="icon-bell"></i> <span class="cnt">{{elapses}}</span></p>
-            <p class="list-group-item-text"><i class="icon-user"></i> {{entries.length}}</p>
-        </div>
-        <div style="clear: both"></div>
-    </a>
-    <a href="#" class="list-group-item orders-list-entry">
+    <a href="#" class="list-group-item orders-list-entry {{active}}">
         <div class="left-half">
             <h4 class="list-group-item-heading">{{owner}}</h4>
             <p class="list-group-item-text">{{vendor}}</p>

@@ -51,3 +51,9 @@ body {
 .countdown_amount {
     font-size: 0.9em;
 }
+
+.orders-list-entry, .order-entries-item {
+    border: none;
+    border-bottom: 1px solid #ECE0BA;
+}
+

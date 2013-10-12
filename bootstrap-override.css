@@ -4,15 +4,6 @@
   src: url('/packages/bootstrap-3/bootstrap-3/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/packages/bootstrap-3/bootstrap-3/fonts/glyphicons-halflings-regular.woff') format('woff'), url('/packages/bootstrap-3/bootstrap-3/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('/packages/bootstrap-3/bootstrap-3/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 
-.orders-list-entry {
-    border: none;
-    border-top: 1px solid #ECE0BA;
-}
-
-.orders-list-entry:first-child {
-    border: none;
-}
-
 a.list-group-item {
     color: inherit;
     background: transparent;
@@ -78,5 +69,3 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small,
     border-bottom-color: #CC9966;
     border-bottom-width: 2px;
 }
-
-.login-button {}
