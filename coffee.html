@@ -41,6 +41,20 @@
         <div class="full-height col-md-6">
             <div class="full-height current-order">
                 <div class="page-header"><h1>Order entries <small> what you and others 'll 'have</small></h1></div>
+                {{#if selectedOrder}}
+                <form class="form-inline order-item-form" role="form">
+                    <fieldset>
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="quantity" name="quantity" placeholder="Qty">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Your order">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </fieldset>
+                </form>
+                {{/if}}
+
                 {{#each selectedOrder.entries}}
                 <div class="list-group">
                     {{> order_entries_listing}}

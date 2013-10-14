@@ -19,7 +19,7 @@ body {
 }
 
 .full-height {
-    height: 100%;
+    /*height: 100%;*/
 }
 
 .current-order {
@@ -57,3 +57,14 @@ body {
     border-bottom: 1px solid #ECE0BA;
 }
 
+.order-item-form {
+    margin-bottom: 20px;
+}
+
+.order-item-form #quantity {
+    width: 65px;
+}
+
+.order-item-form #name {
+    width: 545px;
+}

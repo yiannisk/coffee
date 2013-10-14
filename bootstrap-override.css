@@ -69,3 +69,44 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small,
     border-bottom-color: #CC9966;
     border-bottom-width: 2px;
 }
+
+.btn-primary {
+    background: #330000;
+    border: 1px solid #CC9966;
+    color: #F4F1DD;
+}
+
+.btn-primary:hover {
+    background: #CC9966;
+    color: #330000;
+    border: 1px solid #330000;
+}
+
+.form-control {
+    color: #330000;
+    border: 1px solid #CC9966;
+}
+
+.form-control:focus {
+    border-color: #5C3B0F;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.075), 0 0 8px rgba(204, 153, 102, 0.6);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.075), 0 0 8px rgba(204, 153, 102, 0.6);
+
+}
+
+.form-control:-moz-placeholder {
+    color: #CC9966;
+}
+
+.form-control::-moz-placeholder {
+    color: #CC9966;
+}
+
+.form-control:-ms-input-placeholder {
+    color: #CC9966;
+}
+
+.form-control::-webkit-input-placeholder {
+    color: #CC9966;
+}

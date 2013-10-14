@@ -6,8 +6,8 @@ if (Meteor.isClient) {
     };
 
     Template.orders.selectedOrder = function () {
-        // The session is a monitored source of reactions; whenever it changes, reactors like this template
-        // will update accordingly.
+        // The session is a monitored source of reactions; whenever it changes,
+        // reactors like this template will update accordingly.
         return Session.get('selectedOrder');
     };
 
@@ -19,10 +19,13 @@ if (Meteor.isClient) {
 
     Template.orders.events = {
         'click .orders-list-entry': function (evt) {
-            var self = this, $this = $(evt.currentTarget);
+            var model = this, $this = $(evt.currentTarget);
             if ($this.hasClass('active')) return;
-            Session.set("selectedOrder", self);
+            Session.set("selectedOrder", model);
             evt.preventDefault();
+        },
+        'submit .order-item-form':  function (evt) {
+            var $this = $(evt.currentTarget);
         }
     };
 
