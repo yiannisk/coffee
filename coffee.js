@@ -26,6 +26,9 @@ if (Meteor.isClient) {
         },
         'submit .order-item-form':  function (evt) {
             var $this = $(evt.currentTarget);
+            console.log('submitting form');
+            evt.preventDefault();
+            return false;
         }
     };
 
@@ -34,6 +37,29 @@ if (Meteor.isClient) {
             var $this = $(this);
             var d = new Date($this.text());
             $this.countdown({until: d, compact: true});
+        });
+    };
+
+    Template.order_item_form.rendered = function () {
+        $('.order-item-form').validate({
+            showErrors: function (evt) {
+                this.defaultShowErrors();
+
+                var $form = $('.order-item-form'),
+                    $errors = $form.find('.errors');
+
+                console.log('validation...');
+//                $errors.html('');
+                $form.find('label.error').appendTo($errors);
+            },
+
+            rules: {
+                quantity: {
+                    required: true,
+                    min: 1,
+                    max: 100
+                }
+            }
         });
     };
 }
