@@ -49,7 +49,6 @@ if (Meteor.isClient) {
                     $errors = $form.find('.errors');
 
                 console.log('validation...');
-//                $errors.html('');
                 $form.find('label.error').appendTo($errors);
             },
 

@@ -2,7 +2,7 @@
   "packages": {
     "bootstrap-3": {},
     "font-awesome": {},
-    "jqbootstrapvalidation": {},
-    "jquery-validation": {}
+    "jquery-validation": {},
+    "bootstrap-datepicker2": {}
   }
 }
