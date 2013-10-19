@@ -12,7 +12,6 @@ if (Meteor.isClient) {
     };
 
     Template.order_listing.active = function () {
-        console.log(Session.get('selectedOrder'), this);
         return Session.get('selectedOrder') != null
             && Session.get('selectedOrder')._id === this._id ? 'active' : '';
     };
@@ -25,9 +24,28 @@ if (Meteor.isClient) {
             evt.preventDefault();
         },
         'submit .order-item-form':  function (evt) {
-            var $this = $(evt.currentTarget);
-            console.log('submitting form');
             evt.preventDefault();
+
+            var $this = $(evt.currentTarget);
+
+            if (!$this.valid()) return false;
+
+            var currentOrder = Session.get('selectedOrder');
+
+            if (currentOrder) {
+                currentOrder.entries.push({
+                    quantity: $this.find('#quantity').val(),
+                    name: $this.find('#name').val(),
+                    user: Meteor.user().profile.name,
+                    userId: Meteor.userId()
+                });
+
+                Orders.update({_id: currentOrder._id}, currentOrder);
+
+                // trigger an update so the new data can be loaded.
+                Session.set('selectedOrder', currentOrder);
+            }
+
             return false;
         }
     };
@@ -43,13 +61,7 @@ if (Meteor.isClient) {
     Template.order_item_form.rendered = function () {
         $('.order-item-form').validate({
             showErrors: function (evt) {
-                this.defaultShowErrors();
-
-                var $form = $('.order-item-form'),
-                    $errors = $form.find('.errors');
-
-                console.log('validation...');
-                $form.find('label.error').appendTo($errors);
+                return false;
             },
 
             rules: {
@@ -64,6 +76,7 @@ if (Meteor.isClient) {
 }
 
 if (Meteor.isServer) {
+
     Meteor.startup(function () {
         // code to run on server at startup
 
@@ -81,7 +94,8 @@ if (Meteor.isServer) {
                 entries: [{
                     quantity: 1,
                     name: 'freddo espresso μέτριο με λίγο εβαπορέ',
-                    user: 'Yiannis Karadimas'
+                    user: 'Yiannis Karadimas',
+                    userId: 1
                 }]
             });
 
@@ -93,7 +107,8 @@ if (Meteor.isServer) {
                 entries: [{
                     quantity: 1,
                     name: 'freddo cappuccino γλυκό',
-                    user: 'Panayiotis Matsinopoulos'
+                    user: 'Panayiotis Matsinopoulos',
+                    userId: 2
                 }]
             });
         }

@@ -24,7 +24,6 @@ body {
 
 .current-order {
     padding-left: 30px;
-    border-left: 1px solid #ECE0BA;
 }
 
 #login-buttons {
@@ -66,5 +65,23 @@ body {
 }
 
 .order-item-form #name {
-    width: 380px;
+    width: 546px;
+}
+
+@media (min-width: 1200px) {
+    .order-item-form #name {
+        width: 380px;
+    }
+
+    .current-order {
+        border-left: 1px solid #ECE0BA;
+    }
+}
+
+.errors .error {
+    display: block;
+}
+
+.error .error .field {
+    font-weight: bold;
 }
